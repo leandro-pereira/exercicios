@@ -1,37 +1,73 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-br">
 <head>
 	<title></title>
+	<meta charset="UTF-8">
+	<style>
+		div.fundoNome {
+			position: absolute;
+			top: 20px;
+			width: 180px;
+			height: 57px;
+			background-color: rgb(200, 200, 200);
+			border-radius: 10px;
+			text-align: center;
+		}
+
+		div.bgNome {
+			position:relative;
+			height: 200px;
+			width: 450px;
+			background-color: rgba(0,0,0,.8);
+			border-radius: 10px;
+		}
+		div.fundoCompleto {
+			position: absolute;
+			top: 120px;
+			left: 45px;
+			width: 350px;
+			height: 60px;
+			background-color: blue;
+			font-size: 45px;
+			font-family: arial;
+			color: white;
+			border-radius: 10px;
+			text-align: center;
+		}
+		p.linhaNome {
+			position: absolute;
+			top: 80px;
+			left: 105px ;
+			color: white;
+		}
+	</style>
 	<script>
 		function onNameChanged() {
 			var nome = document.getElementById('nome').value;
 			var sobrenome = document.getElementById('sobrenome').value;
 			document.getElementById('nomecompleto').innerHTML = nome + " " + sobrenome;
-		}
-	</script>
+		};
+		</script>
 </head>
-
 <body>
 
-	<div style="position:relative;height: 200px;width: 450px;background-color: rgba(0,0,0,.8);border-radius: 10px;">
+	<div class="bgNome">
+		
+		<div class="fundoNome" style="left: 20px;">
+			<label for="nome">Nome
+				<input type="text" id="nome" onkeyup="onNameChanged()">
+			</label>
+			</div>
 
-		<div style="position:absolute;top: 20px;left: 20px;width: 180px;height: 57px;background-color: rgb(200,200,200);border-radius: 10px;text-align: center;">
-			<label for="nome" style="text-align: left;">Nome</label></br>
-			<input type="text" id="nome" onkeyup="onNameChanged()">
+		<div class="fundoNome" style="left: 250px;">
+			<label for="sobrenome">Sobrenome
+				<input type="text" id="sobrenome" onkeyup="onNameChanged()">
+			</label>
 		</div>
 
-		</br>
+		<p class="linhaNome"> Seu nome completo em tempo real é:</p>
 
-		<div style="position:absolute;top: 20px;left: 250px;width: 180px;height: 57px;background-color: rgb(200,200,200);border-radius: 10px;text-align: center;">
-			<label for="sobrenome">Sobrenome</label><br>
-			<input type="text" id="sobrenome" onkeyup="onNameChanged()">
-		</div>
-
-
-
-		<p style="position: absolute;top: 80px;left: 105px ;color: white;"> Seu nome completo em tempo real é:</p>
-		<div style="position: absolute;top: 120px; left: 45px;width: 350px ;height: 60px;background-color: blue;font-size: 45px;font-family: arial;color: white;border-radius: 10px;text-align: center;">
+		<div class="fundoCompleto">
 			<p id="nomecompleto" style="position:absolute;top: -45px"></p>
 		</div>
 	</div>
